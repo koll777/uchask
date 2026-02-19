@@ -15,15 +15,31 @@ def main():
     label = ttk.Label(main_frame, text="Это пример интерфейса")
     label.pack(pady=10)
 
-    # Создаем кнопку
-    button = ttk.Button(main_frame, text="Нажми меня", command=lambda: on_button_click(label))
+    # Кнопка изменения текста
+    button = ttk.Button(
+        main_frame,
+        text="Нажми меня",
+        command=lambda: on_button_click(label)
+    )
     button.pack(pady=10)
+
+    # Кнопка удаления текста
+    delete_button = ttk.Button(
+        main_frame,
+        text="Удалить текст",
+        command=lambda: delete_text(label)
+    )
+    delete_button.pack(pady=10)
 
     # Запускаем главный цикл
     root.mainloop()
 
 def on_button_click(label):
     label.config(text="Кнопка нажата!")
+
+# Функция удаления
+def delete_text(label):
+    label.config(text="")
 
 if __name__ == "__main__":
     main()
